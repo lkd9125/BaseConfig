@@ -1,0 +1,35 @@
+server:
+    port: 8080
+    servlet:
+        context-path: /api
+
+spring:
+    datasource:
+            driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+            url: jdbc:log4jdbc:mysql://localhost:33060/DB_NAME?autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+            username: root
+            password: password
+    servlet:
+        multipart:
+            max-file-size: 100MB
+            max-request-size: 100MB 
+
+    jpa:        
+        hibernate:       
+            jdbc:
+                time_zone: Asia/Seoul     
+            ddl-auto: update
+            naming: 
+                implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+                physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+            show_sql: true    
+            properties:
+                hibernate:
+                    dialect: org.hibernate.dialect.MySQLDialect
+    application:
+        name: BaseSet
+
+logging:
+    level:
+        org.hibernate.SQL: debug
+        org.hibernate.type: trace

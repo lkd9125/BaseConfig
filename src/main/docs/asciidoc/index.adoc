@@ -1,0 +1,30 @@
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= SAFETY REST Docs
+API 문서
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+
+
+[[회원-API]]
+== 회원 API
+
+[[회원-Login]]
+=== [로그인 API]
+
+==== [HTTP 요청 정보]
+include::{snippets}/user/login/http-request.adoc[]
+
+==== [HTTP 응답 정보]
+include::{snippets}/user/login/http-response.adoc[]
+
+include::{snippets}/user/login/response-fields.adoc[]
+
+***
+___
