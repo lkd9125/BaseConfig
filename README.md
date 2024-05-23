@@ -2,7 +2,7 @@
 **안녕하세요 SpringBoot 백엔드 서버 GitHubRepository 입니다.**
 <br/><br/>서버의 기본 환경설정을 한 프로젝트입니다.
 
-## 프로젝트 소개 🎈:
+## 소개 🎈:
 
 • 🖥️ 공통적인 설정에 대해서는 지속적으로 추가 할 예정입니다. <br/>
 • ☕ 자바 버전은 <b>17</b>입니다.<br/>
@@ -10,6 +10,12 @@
 • 👤 기본 설정만을 한 서버 입니다. 기초적인 <b>SpringSecurity</b>, <b>RestDocs</b>, <b>SpringDataJPA와 QueryDSL설정</b>, <b>Exception</b> 설정을 했습니다.<br/>
 • 🙏 피드백은 누구든지 감사히 받겠습니다 🙇<br/>
 </span>
+
+## 프로젝트 정보
+• DB정보는 각 사용자의 정보에 맞게 설정해주세요. <br/>
+• Gradle 빌드를 할 때 <b>-x test</b> 옵션으로 테스트를 스킵할 수 있습니다. <br/>[ 예) gradle build <b>-x test</b> ] <br/>
+• 제 프로젝트의 기본 context-path는 <b>'/api'</b> 입니다. <br/>
+• RestDocs의 html 페이지를 보려면 서버 작동 후 <b>/api/docs/index.html</b> 혹은 <b>static/docs/index.html</b> 페이지를 확인 해주세요. <br/>
 
 <br />
 
