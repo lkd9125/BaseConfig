@@ -63,7 +63,6 @@ public class JwtTokenProvider implements InitializingBean {
         @Value("${expriation-day}") long tokenValidityInDay
     ) {        
         this.tokenValidityInMilliseconds = tokenValidityInMinute * 60 * 1000;
-        // this.tokenValidityInDay = tokenValidityInDay * 1000 * 60 * 60 * 24;
         this.tokenValidityInDay = 1000;
     }
 

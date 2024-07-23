@@ -11,6 +11,9 @@ import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.framework.base_set.global.base.BaseErrorModel;
+import com.framework.base_set.global.exception.ExceptionCode;
 import com.framework.base_set.global.jpa.entity.LoggingEntity;
 import com.framework.base_set.global.jpa.entity.UsersEntity;
 import com.framework.base_set.global.jpa.repository.LoggingQueryRepository;
@@ -43,6 +46,8 @@ public class CustomLoginFailureHandler implements AuthenticationFailureHandler {
 
         LoggingEntity logging = new LoggingEntity();
         logging.setIp(request.getRemoteAddr());
+
+        ExceptionCode loginFail = ExceptionCode.LOGIN_FAIL;
 
 
         switch (failType) {
@@ -84,7 +89,19 @@ public class CustomLoginFailureHandler implements AuthenticationFailureHandler {
         }
 
         loggingQueryRepository.insert(logging);
-        response.sendRedirect("redirect:/");
+
+        BaseErrorModel baseBody = new BaseErrorModel();
+        baseBody.setCode(loginFail.code());
+        baseBody.setDesc(loginFail.message());
+
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String responseBody = objectMapper.writeValueAsString(baseBody);
+
+        response.setStatus(loginFail.status()); // 상태 코드 401을 설정
+        response.getWriter().write(responseBody);
     }
     
 }

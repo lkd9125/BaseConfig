@@ -24,6 +24,7 @@ public enum ExceptionCode {
 
 	FILE_ERROR("F001", 500, "파일 읽어오기 오류"),
 	FILE_PARSING_ERROR("F002", 500, "파일 파싱중 오류"),
+	LOGIN_FAIL("P003", 400, "로그인 실패"),
 
 	NOT_AUTHENTICATION_USER("P001", 400, "인증실패"),
 	NOT_AUTHORIZED_USER("P002", 401, "인가되지 않은 사용자"),
